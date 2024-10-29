@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.ts",
-    "start:dev": "nodemon index.ts",
-    "ts": "tsc"
+    "build": "tsc",
+    "start": "node index.js",
+    "build-and-start": "npm run build && npm run start",
+    "start:dev": "nodemon index.ts"
   },
   "keywords": [],
   "author": "",

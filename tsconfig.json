@@ -5,8 +5,9 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "outDir": "./",
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["**/*"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules"]
 }
