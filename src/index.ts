@@ -1,8 +1,11 @@
-var contactsActions = require("./contacts");
-var { program } = require("commander");
+import { Command } from "commander";
+import Contacts from "./contacts.js";
+const program = new Command();
+
+const contactsActions: Contacts = new Contacts();
 
 interface Arg {
-  action: string;
+  action?: string;
   name?: string;
   email?: string;
   phone?: string;
@@ -22,14 +25,23 @@ async function invokeAction({
       console.log(contactsAll);
       return;
     case "get":
+      if (!id) {
+        return;
+      }
       const contact = await contactsActions.getContactById(id);
       console.log(contact);
       return;
     case "add":
+      if (!name || !email || !phone) {
+        return;
+      }
       const contactsNew = await contactsActions.addContact(name, email, phone);
       console.log(contactsNew);
       return;
     case "remove":
+      if (!id) {
+        return;
+      }
       const contactRemoved = await contactsActions.removeContact(id);
       console.log(contactRemoved);
       return;
